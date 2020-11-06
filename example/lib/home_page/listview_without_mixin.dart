@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_weather_demo/home_page/_manager/weather_manager.dart';
 import 'package:flutter_weather_demo/home_page/_model/weather_entry.dart';
+import 'package:get_it/get_it.dart';
 import 'package:get_it_mixin/get_it_mixin.dart';
 
 class WeatherListView extends StatelessWidget with GetItMixin {
@@ -8,7 +9,7 @@ class WeatherListView extends StatelessWidget with GetItMixin {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<List<WeatherEntry>>(
-      valueListenable: getX((WeatherManager x) => x.updateWeatherCmd),
+      valueListenable: GetIt.I<WeatherManager>().updateWeatherCmd,
       builder: (BuildContext context, List<WeatherEntry> data, _) {
         return ListView.builder(
           itemCount: data.length,
