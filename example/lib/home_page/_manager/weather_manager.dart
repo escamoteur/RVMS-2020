@@ -23,15 +23,9 @@ class WeatherManager {
     // Will be called on every change of the searchfield
     textChangedCmd = Command.createSync((s) => s, '');
 
-    // handler for results
-    // make sure we start processing only if the user make a short pause typing
     textChangedCmd.debounce(Duration(milliseconds: 500)).listen(
-      (filterText, _) {
-        // I could omit he execute because Command is a callable
-        // class  but here it makes the intention clearer
-        updateWeatherCmd.execute(filterText);
-      },
-    );
+          (filterText, _) => updateWeatherCmd.execute(filterText),
+        );
 
     updateWeatherCmd.thrownExceptions.listen((ex, _) => print(ex.toString()));
 
