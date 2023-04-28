@@ -97,10 +97,12 @@ class _HomePageState extends State<HomePage> {
                       final handler = canExecute
                           ? GetIt.I<WeatherManager>().updateWeatherCmd
                           : null;
-                      return RaisedButton(
+                      return ElevatedButton(
                         child: Text("Update"),
-                        color: Color.fromARGB(255, 33, 150, 243),
-                        textColor: Color.fromARGB(255, 255, 255, 255),
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Color.fromARGB(255, 255, 255, 255),
+                          backgroundColor: Color.fromARGB(255, 33, 150, 243),
+                        ),
                         onPressed: handler,
                       );
                     },

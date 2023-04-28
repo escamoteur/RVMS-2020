@@ -67,10 +67,12 @@ class HomePage extends StatelessWidget with GetItMixin {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     child: Text("Update"),
-                    color: Color.fromARGB(255, 33, 150, 243),
-                    textColor: Color.fromARGB(255, 255, 255, 255),
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Color.fromARGB(255, 255, 255, 255),
+                      backgroundColor: Color.fromARGB(255, 33, 150, 243),
+                    ),
                     onPressed: updateButtonEnbaled
                         ? get<WeatherManager>().updateWeatherCmd
                         : null,
